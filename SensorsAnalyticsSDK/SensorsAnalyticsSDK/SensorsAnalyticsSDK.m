@@ -2152,7 +2152,6 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
 }
 
 - (void)addWebViewUserAgentSensorsDataFlag {
-    dispatch_async(dispatch_get_main_queue(), ^{
         @try {
             UIWebView * tempWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
             NSString * oldAgent = [tempWebView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
@@ -2167,7 +2166,6 @@ static SensorsAnalyticsSDK *sharedInstance = nil;
         } @catch (NSException *exception) {
             SADebug(@"%@: %@", self, exception);
         }
-    });
 }
 
 - (SensorsAnalyticsDebugMode)debugMode {
